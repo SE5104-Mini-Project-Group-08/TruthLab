@@ -1,0 +1,175 @@
+/* Basic Reset and Font Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f8f8f8; /* Light background for the whole page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Login Container Styles (The white card) */
+.login-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Very subtle shadow */
+    width: 30vw;
+    text-align: center;
+}
+
+/* Header/Title */
+.header {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Input Group and Label */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #555555;
+}
+
+/* Input Field Container (for the icon and input) */
+.input-field-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: border-color 0.3s;
+}
+
+.input-field-container:focus-within {
+    border-color: #639c94; /* Focus border color */
+}
+
+.input-field-container i {
+    color: #aaaaaa;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Text Input */
+input[type="email"],
+input[type="password"] {
+    flex-grow: 1;
+    border: none;
+    padding: 0;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333333;
+    outline: none; /* Remove default focus outline */
+}
+
+input::placeholder {
+    color: #aaaaaa;
+    font-weight: 400;
+}
+
+/* Forgot Password Link */
+a{
+    text-decoration: none;
+}
+
+.forgot-password {
+    display: block;
+    text-align: center;
+    font-size: 0.9rem; 
+    color: #69A1A2;
+; /* Match the link color in the image */
+    text-decoration: none;
+    margin-bottom: 25px;
+    transition: color 0.2s;
+}
+
+.forgot-password:hover {
+    color: #4a7771;
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 15px;
+}
+
+/* Primary Button (Log In) */
+.primary-btn {
+    background-color: #79aea5; /* The teal/green color from the image */
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(121, 174, 165, 0.4);
+}
+
+.primary-btn:hover {
+    background-color: #639c94;
+}
+
+/* Secondary Button (Log in with Google) */
+.secondary-btn {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #cccccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.secondary-btn i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.secondary-btn:hover {
+    background-color: #eeebeb;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+
+/* Sign Up Text */
+.signup-text {
+    font-size: 0.95rem;
+    color: #555555;
+}
+
+.signup-link {
+    color: #639c94; /* Match the link color */
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.signup-link:hover {
+    color: #4a7771;
+    text-decoration: underline;
+}
