@@ -1,4 +1,6 @@
 import React from "react";
+import {Routes, Route, Link} from "react-router-dom";
+import Signup from "./Signup";
 import "./Login.css" 
 
 const Login = () => {
@@ -37,7 +39,7 @@ const Login = () => {
         </form>
 
         <p className="signup-text">
-            Don't have an account? <a href="#" className="signup-link">Sign up</a>
+            Don't have an account?  <Link to="/signup">Sign up</Link> 
         </p>
     </div>
     )
