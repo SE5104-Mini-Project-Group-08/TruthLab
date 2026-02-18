@@ -6,6 +6,13 @@ import os
 import requests
 from urllib.parse import urlencode, quote_plus
 
+# optional local api_key file providing CLIENT_ID/CLIENT_SECRET as fallbacks
+try:
+    from api_key import CLIENT_ID as API_CLIENT_ID, CLIENT_SECRET as API_CLIENT_SECRET
+except Exception:
+    API_CLIENT_ID = "921182310953-kt6kt1nhkt560c61gj5vsmrqfbsjfk5d.apps.googleusercontent.com"
+    API_CLIENT_SECRET = "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"
+
 bcrypt = Bcrypt()
 auth_bp = Blueprint("auth", __name__)
 
@@ -27,6 +34,7 @@ def signup():
     })
 
     return jsonify({"message": "User created successfully!"}), 201
+
 
 @auth_bp.route("/login", methods=["POST"])
 def login():
@@ -55,10 +63,26 @@ def login():
     }), 200
 
 
+@auth_bp.route("/google/login")
+def google_login():
+    """Redirect the user to Google's OAuth 2.0 server for authorization."""
+    # prefer env vars, fall back to api_key module if present
+    client_id = os.getenv("GOOGLE_CLIENT_ID") or API_CLIENT_ID
+    frontend_url = os.environ.get("FRONTEND_URL", "http://localhost:3000")
+    if not client_id:
+        return jsonify({"error": "GOOGLE_CLIENT_ID not configured on server"}), 500
 
-
-
-
-
+    redirect_uri = os.environ.get("GOOGLE_REDIRECT_URI", "http://127.0.0.1:5000/auth/google/callback")
+    scope = "openid email profile"
+    params = {
+        "response_type": "code",
+        "client_id": client_id,
+        "redirect_uri": redirect_uri,
+        "scope": scope,
+        "access_type": "offline",
+        "prompt": "consent",
+    }
+    auth_url = "https://accounts.google.com/o/oauth2/v2/auth?" + urlencode(params)
+    return redirect(auth_url)
 
 
