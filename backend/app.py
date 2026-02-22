@@ -23,6 +23,7 @@ bcrypt.init_app(app)
 # URL prefixes align with frontend calls
 app.register_blueprint(auth_bp, url_prefix="/auth") 
 app.register_blueprint(verify_bp, url_prefix="/verify")
+app.register_blueprint(faq_bp, url_prefix="/faq")
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
