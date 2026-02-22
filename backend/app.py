@@ -24,6 +24,7 @@ bcrypt.init_app(app)
 app.register_blueprint(auth_bp, url_prefix="/auth") 
 app.register_blueprint(verify_bp, url_prefix="/verify")
 app.register_blueprint(faq_bp, url_prefix="/faq")
+app.register_blueprint(report_bp, url_prefix="/report")
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
